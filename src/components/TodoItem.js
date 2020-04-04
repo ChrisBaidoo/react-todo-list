@@ -5,13 +5,26 @@ import PropTypes from "prop-types";
 export class TodoItem extends Component {
 
     getStyle = () => {
-        return {
-            backgroundColor: '#f4f4f4',
-            padding: '10px',
-            borderBottom: '1px #ccc dotted',
-            textDecoration: this.props.todo.completed ? 'none' : 'line-through',
+        if(this.props.todo.completed) {
+            return {
+                textDecoration: 'none'
+            } 
+        } else {
+            return {
+                textDecoration: 'line-through'
+            }
         }
+
+        // return {
+        //     backgroundColor: this.props.todo.completed ? '#f4f4f4' : '#ffffff',
+        //     padding: '10px',
+        //     borderBottom: '1px #ccc dotted',
+        //     textDecoration: this.props.todo.completed ? 'none' : 'line-through',
+        // }
     }
+
+
+    
 
     render() {  
         return (

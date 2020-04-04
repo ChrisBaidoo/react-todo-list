@@ -10,19 +10,19 @@ import './App.css';
       {
         id: 1,
         title: "Wash dishes",
-        completed: "false"
+        completed: "true"
       },
-      {
-        id: 2,
-        title: "Do abs",
-        completed: "false"
-      },
+      // {
+      //   id: 2,
+      //   title: "Do abs",
+      //   completed: "true"
+      // },
 
-      {
-        id: 3,
-        title: "Read book", 
-        completed: "false"
-      },
+      // {
+      //   id: 3,
+      //   title: "Read book", 
+      //   completed: "true"
+      // },
     ]
   }
 
