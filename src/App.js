@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Todos from './components/Todos'
+import AddTodo from './components/AddTodo'
+import Header from './components/layout/Header'
+import { v4 as uuidv4 } from 'uuid'
 import './App.css';
 
 
@@ -8,18 +11,18 @@ import './App.css';
   state = {
     todos :[
       {
-        id: 1,
+        id: uuidv4(),
         title: "Wash dishes",
         completed: true
       },
       {
-        id: 2,
+        id: uuidv4(),
         title: "Do abs",
         completed: true
       },
 
       {
-        id: 3,
+        id: uuidv4(),
         title: "Read book", 
         completed: true
       },
@@ -38,7 +41,19 @@ import './App.css';
 }
 //Delete Todo
 delTodo = (id) => {
-console.log("hello" + id)
+this.setState({todos: [...this.state.todos.filter(todo =>
+   todo.id !== id
+)]})
+}
+
+//Add Todo
+addTodo = (title) => {
+  const newTodo = {
+    id: uuidv4(),
+    title,
+    completed: false
+  }
+  this.setState({todos: [...this.state.todos, newTodo]})
 }
 
     render() {
@@ -46,7 +61,11 @@ console.log("hello" + id)
 
       return(
       <div className="App">
+        <div className="container">
+        <Header/>
+        <AddTodo addTodo={this.addTodo}/>
       <Todos todos ={this.state.todos} markCompleted={this.markCompleted} delTodo={this.delTodo}/>
+        </div>
     </div>
       )
         
