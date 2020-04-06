@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
  
 
     render() {
-        console.log(this.props.todos)
 
         return this.props.todos.map((todo) => (
             <TodoItem key={todo.id} todo={todo} markCompleted={this.props.markCompleted} delTodo={this.props.delTodo}/>
@@ -18,7 +17,9 @@ import PropTypes from "prop-types";
 
 //PropTypes
 Todos.propTypes = {
-    todos: PropTypes.array.isRequired
+    todos: PropTypes.array.isRequired,
+    markCompleted: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired
 }
 
 export default Todos
